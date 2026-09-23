@@ -53,6 +53,7 @@ export default function RootLayout({
   return (
     <html lang="ru" className="bg-ramen-dark">
       <head>
+        <meta name="yandex-verification" content="77ada8db9acfd45e" />
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
         <meta name="author" content="Ramenbet" />
